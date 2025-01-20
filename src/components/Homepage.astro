@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logoPng from '../assets/png/logo.png';
+import fontchewy from '../assets/fonts/Chewy-Regular.ttf';
 import placeholderImage from '../assets/placeholder/placeholder.png';
 ---
 
@@ -40,81 +41,86 @@ import placeholderImage from '../assets/placeholder/placeholder.png';
 </div>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-
-	@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-    background-color: #191a42; /* Navy blue background */
-    background-image: url('../assets/png/background_overlay.png'); /* Path to the overlay image */
-    background-repeat: repeat; /* Repeat the overlay pattern */
-    background-size: auto; /* Keeps the original size of the overlay */
-    background-position: center; /* Centers the overlay */
-}
-
-/* TODO: make buttons & fonts responsive */
-@layer components {
-
-  /* Primary Button */
-    .primaryButton {
-      @apply relative px-3 py-0.5 font-bold text-lime-300 bg-pink-500 rounded-md shadow-lg transition-transform duration-200 w-24
-      chewy-regular text-2xl;
-    }
-  
-    .primaryButton::before {
-      content: '';
-      @apply absolute inset-0 bg-lime-400 rounded-md -z-10 translate-x-1 translate-y-1;
-    }
-  
-    .primaryButton:hover {
-      @apply bg-pink-700 transition-colors duration-300;
-    }
-
-    .primaryButton {
-      @apply transition-colors duration-300;
-    }
-
-    /* Gallery Card */
-    .galleryCardContainer {
-      @apply inline-flex rounded-md
-      relative overflow-hidden
-      w-64 h-auto;
-      @apply shadow-xl;
-    }
-
-    .galleryCardBorder {
-      @apply border-8 border-yellow-300;
-    }
-
-    .galleryCardContainer:hover {
-      @apply transition-transform bg-yellow-300
-      cursor-pointer;
-    }
-
-    .galleryCardContainer::before {
-      @apply absolute inset-0 bg-yellow-300 opacity-0 transition-opacity duration-300 content-[''];
-    }
-
-    .galleryCardContainer:hover::before {
-      @apply opacity-100;
-    }
-
-    .galleryCardImage {
-      @apply w-full h-full object-cover transition-transform duration-300;
-    }
-}
-
-.chewy-regular {
-    font-family: "Chewy", serif;
+  @font-face {
+    font-family: "Chewy";
+    src: url('../assets/fonts/Chewy-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-}
+  }
 
-/*
-*{
-  border: 1px solid red;
-} 
-*/
+	@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  body {
+      background-color: #191a42; /* Navy blue background */
+      background-image: url('../assets/png/background_overlay.png'); /* Path to the overlay image */
+      background-repeat: repeat; /* Repeat the overlay pattern */
+      background-size: auto; /* Keeps the original size of the overlay */
+      background-position: center; /* Centers the overlay */
+  }
+
+  /* TODO: make buttons & fonts responsive */
+  @layer components {
+
+    /* Primary Button */
+      .primaryButton {
+        @apply relative px-3 py-0.5 font-bold text-lime-300 bg-pink-500 rounded-md shadow-lg transition-transform duration-200 w-24
+        chewy-regular text-2xl;
+      }
+    
+      .primaryButton::before {
+        content: '';
+        @apply absolute inset-0 bg-lime-400 rounded-md -z-10 translate-x-1 translate-y-1;
+      }
+    
+      .primaryButton:hover {
+        @apply bg-pink-700 transition-colors duration-300;
+      }
+
+      .primaryButton {
+        @apply transition-colors duration-300;
+      }
+
+      /* Gallery Card */
+      .galleryCardContainer {
+        @apply inline-flex rounded-md
+        relative overflow-hidden
+        w-64 h-auto;
+        @apply shadow-xl;
+      }
+
+      .galleryCardBorder {
+        @apply border-8 border-yellow-300;
+      }
+
+      .galleryCardContainer:hover {
+        @apply transition-transform bg-yellow-300
+        cursor-pointer;
+      }
+
+      .galleryCardContainer::before {
+        @apply absolute inset-0 bg-yellow-300 opacity-0 transition-opacity duration-300 content-[''];
+      }
+
+      .galleryCardContainer:hover::before {
+        @apply opacity-100;
+      }
+
+      .galleryCardImage {
+        @apply w-full h-full object-cover transition-transform duration-300;
+      }
+  }
+
+  .chewy-regular {
+      font-family: "Chewy", serif;
+      font-weight: 400;
+      font-style: normal;
+  }
+
+  /*
+  *{
+    border: 1px solid red;
+  } 
+  */
 </style>
