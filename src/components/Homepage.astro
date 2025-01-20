@@ -1,6 +1,7 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import { Image } from 'astro:assets';
+import logoPng from '../assets/png/logo.png';
+import placeholderImage from '../assets/placeholder/placeholder.png';
 ---
 
 <div id="container">
@@ -9,7 +10,7 @@ import background from '../assets/background.svg';
         <div id="navbar" class="flex w-full mx-24">
             <div class="ml-24 flex">
                 <a href="/">
-                    <img src="src/assets/png/logo.png" alt="logo" class="w-80"/>
+                    <Image src={logoPng} alt="logo" class="w-80"/>
                 </a>
             </div>
             <div class="flex justify-end w-full items-center gap-10">
@@ -24,16 +25,16 @@ import background from '../assets/background.svg';
     <div id="body" class="relative mt-24 mx-24 grid gap-24">
         <!-- 16:9  9:16  3:2  2:3  4:5  5:4 -->
         <div class="galleryCardContainer absolute left-8 top-12  aspect-[2/3] w-1/3 z-[1]">
-            <img src="src/assets/placeholder/placeholder.png" class="galleryCardImage">
+            <Image src={placeholderImage} class="galleryCardImage" alt="" class="galleryCardImage"/>
         </div>
         <div class="galleryCardContainer galleryCardBorder absolute right-24 aspect-[4/5] w-80 ">
-            <img src="src/assets/placeholder/placeholder.png" class="galleryCardImage">
+          <Image src={placeholderImage} class="galleryCardImage" alt="" class="galleryCardImage"/>
         </div>
         <div class="galleryCardContainer absolute left-96 top-48 aspect-[16/9] w-1/2">
-            <img src="src/assets/placeholder/placeholder.png" class="galleryCardImage">
+          <Image src={placeholderImage} class="galleryCardImage" alt="" class="galleryCardImage"/>
         </div>
         <div class="galleryCardContainer absolute">
-            <img src="src/assets/placeholder/placeholder.png" class="galleryCardImage aspect-[3/2] ">
+          <Image src={placeholderImage} class="galleryCardImage" alt="" class="galleryCardImage"/>
         </div>
     </div>
 </div>
