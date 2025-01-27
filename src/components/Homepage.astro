@@ -6,38 +6,58 @@ import placeholderImage from "../assets/placeholder/placeholder.png";
 import smileyPng from "../assets/png/smiley.png";
 ---
 
+<!-- TODO: Fix Z-indexes -->
 <div id="container">
-  <div class="fixed top-0 z-10 py-14 flex justify-center w-full">
+  <div
+    class="fixed top-0 z-10 py-14 flex justify-center w-full pointer-events-none"
+  >
     <!-- TODO: Reduce Redundancy -->
     <div id="navbar" class="flex w-full mx-24">
-      <div class="ml-24 flex">
+      <div class="ml-24 flex pointer-events-auto">
         <a href="/">
-          <Image src={logoPng} alt="logo" class="w-80" />
+          <Image src={logoPng} alt="logo" class="w-80 z-[99] logoImage" />
         </a>
       </div>
       <div class="flex justify-end w-full items-start gap-10 mt-7">
         <a href="#">
-          <button class="primaryButton" onclick="alert('Test')">Blog</button>
+          <button
+            class="primaryButton pointer-events-auto"
+            onclick="alert('Test')">Blog</button
+          >
         </a>
-        <button class="primaryButton">About</button>
-        <button class="primaryButton">Contact</button>
+        <button class="primaryButton pointer-events-auto">About</button>
+        <button class="primaryButton pointer-events-auto">Contact</button>
       </div>
     </div>
   </div>
   <!-- '4/3': '3/4': '16/9': '9/16': '3/2': '2/3': '5/4': '4/5' -->
-  <div class="grid grid-cols-3 mt-64 mx-36">
-    <div class="galleryCardContainer aspect-[2/3] w-[24rem]">
+  <!-- 4/5 & 3/4 -->
+  <div class="grid grid-cols-3 mt-[23rem] mx-36">
+    <!-- 1 -->
+    <div class="galleryCardContainer yellowHover aspect-[2/3] w-[24rem]">
       <Image src={placeholderImage} class="galleryCardImage" alt="" />
     </div>
+    <!-- 2 & Smiley -->
     <div>
-      <div class="relative w-[40rem] z-[53] -top-36 -left-24">
+      <div class="relative z-[53] -top-24 shrink pointer-events-none">
         <Image src={smileyPng} class="" alt="" />
       </div>
-      <div class="galleryCardContainer aspect-[9/16] w-48 -top-72">
+      <div class="galleryCardContainer blueHover aspect-[9/16] w-72 left-4 -top-28 z-[51]">
         <Image src={placeholderImage} class="galleryCardImage" alt="" />
       </div>
     </div>
-    <div class="galleryCardContainer aspect-[4/5] -rotate-12 w-80 -left-12">
+    <!-- 3 -->
+    <div class="galleryCardContainer redHover aspect-[4/5] -rotate-12 w-96 -left-12">
+      <Image src={placeholderImage} class="galleryCardImage" alt="" />
+    </div>
+    <!-- 4 -->
+    <div class="galleryCardContainer pinkHover aspect-[3/4] w-72 -top-72 left-12 z-[52]">
+      <Image src={placeholderImage} class="galleryCardImage" alt="" />
+    </div>
+    <!-- 5 -->
+    <div
+      class="galleryCardContainer orangeHover aspect-[4/5] w-[32rem] -top-36 -left-8 z-[49]"
+    >
       <Image src={placeholderImage} class="galleryCardImage" alt="" />
     </div>
   </div>
@@ -65,6 +85,14 @@ import smileyPng from "../assets/png/smiley.png";
 
   /* TODO: make buttons & fonts responsive */
   @layer components {
+    /* Logo */
+    .logoImage {
+      @apply w-80 transition-transform duration-200 ease-in-out;
+    }
+    .logoImage:hover {
+      @apply transition-transform transform scale-110 duration-200 ease-in-out;
+    }
+
     /* Primary Button */
     .primaryButton {
       @apply relative px-3 py-0.5 font-bold text-lime-300 bg-pink-500 rounded-md shadow-lg transition-transform duration-200 w-24
@@ -96,13 +124,51 @@ import smileyPng from "../assets/png/smiley.png";
       @apply border-8 border-yellow-300;
     }
 
-    .galleryCardContainer:hover {
-      @apply transition-transform bg-yellow-300
-        cursor-pointer;
+    /* TODO: Parameterize colors */
+    .greenHover:hover {
+      @apply transition-transform bg-green-300 cursor-pointer;
+    }
+    .blueHover:hover {
+      @apply transition-transform bg-blue-300 cursor-pointer;
+    }
+    .yellowHover:hover {
+      @apply transition-transform bg-yellow-300 cursor-pointer;
+    }
+    .redHover:hover {
+      @apply transition-transform bg-red-300 cursor-pointer;
+    }
+    .pinkHover:hover {
+      @apply transition-transform bg-pink-300 cursor-pointer;
+    }
+    .orangeHover:hover {
+      @apply transition-transform bg-orange-400 cursor-pointer;
     }
 
-    .galleryCardContainer::before {
-      @apply absolute inset-0 bg-yellow-300 opacity-0 transition-opacity duration-300 content-[''];
+    .greenHover::before,
+    .blueHover::before,
+    .yellowHover::before,
+    .redHover::before,
+    .pinkHover::before,
+    .orangeHover::before {
+      @apply absolute inset-0 opacity-0 transition-opacity duration-300 content-[''];
+    }
+    .greenHover::before {
+      @apply bg-green-300;
+    }
+    .blueHover::before {
+      @apply bg-blue-300;
+    }
+    .yellowHover::before {
+      @apply bg-yellow-300;
+    }
+    .redHover::before {
+      @apply bg-red-300;
+    }
+    .pinkHover::before {
+      @apply bg-pink-300;
+    }
+    .orangeHover::before {
+      @apply bg-orange-300;
     }
 
     .galleryCardContainer:hover::before {
