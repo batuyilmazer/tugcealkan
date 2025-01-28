@@ -6,10 +6,10 @@ import placeholderImage from "../assets/placeholder/placeholder.png";
 import smileyPng from "../assets/png/smiley.png";
 ---
 
-<!-- TODO: Fix Z-indexes -->
+<!-- TODO: Fix Z-indexes --><!-- TODO: Islands -->
 <div id="container">
   <div
-    class="fixed top-0 z-10 py-14 flex justify-center w-full pointer-events-none"
+    class="fixed top-0 z-[99] py-14 flex justify-center w-full pointer-events-none"
   >
     <!-- TODO: Reduce Redundancy -->
     <div id="navbar" class="flex w-full mx-24">
@@ -42,24 +42,71 @@ import smileyPng from "../assets/png/smiley.png";
       <div class="relative z-[53] -top-24 shrink pointer-events-none">
         <Image src={smileyPng} class="" alt="" />
       </div>
-      <div class="galleryCardContainer blueHover aspect-[9/16] w-72 left-4 -top-28 z-[51]">
+      <div
+        class="galleryCardContainer blueHover aspect-[9/16] w-72 left-4 -top-28 z-[51]"
+      >
         <Image src={placeholderImage} class="galleryCardImage" alt="" />
       </div>
     </div>
     <!-- 3 -->
-    <div class="galleryCardContainer redHover aspect-[4/5] -rotate-12 w-96 -left-12">
+    <div
+      class="galleryCardContainer redHover aspect-[4/5] -rotate-12 top-12 w-96 -left-12"
+    >
       <Image src={placeholderImage} class="galleryCardImage" alt="" />
     </div>
     <!-- 4 -->
-    <div class="galleryCardContainer pinkHover aspect-[3/4] w-72 -top-72 left-12 z-[52]">
+    <div
+      class="galleryCardContainer pinkHover aspect-[3/4] w-72 -top-72 left-12 z-[52] rotate-3"
+    >
       <Image src={placeholderImage} class="galleryCardImage" alt="" />
     </div>
     <!-- 5 -->
     <div
-      class="galleryCardContainer orangeHover aspect-[4/5] w-[32rem] -top-36 -left-8 z-[49]"
+      class="galleryCardContainer orangeHover aspect-[4/5] w-[32rem] -top-36 -left-8 z-[49] -rotate-3"
     >
       <Image src={placeholderImage} class="galleryCardImage" alt="" />
     </div>
+    <!-- 6 -->
+    <div>
+      <div>
+        <!-- Todo: Add vector content -->
+      </div>
+      <div
+        class="galleryCardContainer yellowHover aspect-[16/9] w-[24rem] top-10 z-[49] rotate-6"
+      >
+        <Image src={placeholderImage} class="galleryCardImage" alt="" />
+      </div>
+    </div>
+    <!-- 7 -->
+    <div
+      class="galleryCardContainer redHover aspect-[2/3] w-[24rem] -top-80 z-[49]"
+    >
+      <Image src={placeholderImage} class="galleryCardImage" alt="" />
+    </div>
+    <!-- 8 -->
+    <div
+      class="galleryCardContainer blueHover aspect-[16/9] w-[38rem] -top-48 left-24 z-[49] rotate-6"
+    >
+      <Image src={placeholderImage} class="galleryCardImage" alt="" />
+    </div>
+    <!-- 9 -->
+    <div></div>
+    <!-- 10 -->
+    <div
+      class="galleryCardContainer orangeHover aspect-[9/16] w-[24rem] -top-96 left-48 z-[49] rotate-3"
+    >
+      <Image src={placeholderImage} class="galleryCardImage" alt="" />
+    </div>
+    <!-- 11 -->
+    <div
+      class="galleryCardContainer pinkHover aspect-[3/2] w-[32rem] -top-72 left-36 z-[49] -rotate-3"
+    >
+      <Image src={placeholderImage} class="galleryCardImage" alt="" />
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="pb-5">
+    <p class="text-center text-stone-400 text-sm">Tugce Alkan - tugcealkan.com</p>
   </div>
 </div>
 
@@ -83,6 +130,7 @@ import smileyPng from "../assets/png/smiley.png";
     background-position: center; /* Centers the overlay */
   }
 
+  /* TODO: Split CSS to another file */
   /* TODO: make buttons & fonts responsive */
   @layer components {
     /* Logo */
@@ -124,7 +172,6 @@ import smileyPng from "../assets/png/smiley.png";
       @apply border-8 border-yellow-300;
     }
 
-    /* TODO: Parameterize colors */
     .greenHover:hover {
       @apply transition-transform bg-green-300 cursor-pointer;
     }
